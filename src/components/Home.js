@@ -51,7 +51,7 @@ const Home = ({ user, token, setScreen }) => {
         </div>
       </header>
 
-      {/* Find Internships Section */}
+      {}
       <section className="container mx-auto py-16 px-4">
         <h2 className="text-4xl font-bold text-center text-white mb-10">Discover Internships</h2>
         {loading && <p className="text-center text-gray-400">Loading internships...</p>}
@@ -68,7 +68,7 @@ const Home = ({ user, token, setScreen }) => {
         </div>
       </section>
 
-      {/* Testimonials Section (Carousel) */}
+      {}
       <section className="container mx-auto py-16 px-4 bg-gray-800/50">
         <h2 className="text-4xl font-bold text-center text-white mb-10">What Our Users Say</h2>
         <div className="flex overflow-x-auto space-x-6 pb-4 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
@@ -78,7 +78,7 @@ const Home = ({ user, token, setScreen }) => {
         </div>
       </section>
 
-      {/* Popup */}
+      {}
       {showPopup && selectedInternship && (
         <InternshipPopup internship={selectedInternship} setShowPopup={setShowPopup} />
       )}

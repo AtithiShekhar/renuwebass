@@ -1,12 +1,10 @@
 import React from 'react';
 
 const InternshipCard = ({ internship, setSelectedInternship, setShowPopup }) => {
-  // Add a check to ensure internship exists and has required fields
   if (!internship || !internship.title) {
     return <div className="text-red-400 p-4">Error: Invalid internship data</div>;
   }
 
-  // Ensure setSelectedInternship and setShowPopup are functions
   const handleClick = () => {
     if (typeof setSelectedInternship !== 'function' || typeof setShowPopup !== 'function') {
       console.error('setSelectedInternship or setShowPopup is not a function');
