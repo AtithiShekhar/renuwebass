@@ -1,18 +1,12 @@
-// Create a new file: addSampleData.js in your backend folder
-// Run: node addSampleData.js
 
 const mongoose = require('mongoose');
 require('dotenv').config();
-
-// Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log('MongoDB connection error:', err));
-
-// Internship Schema (same as in server.js)
 const internshipSchema = new mongoose.Schema({
   title: { type: String, required: true },
   company: { type: String, required: true },
@@ -27,7 +21,6 @@ const internshipSchema = new mongoose.Schema({
 
 const Internship = mongoose.model('Internship', internshipSchema);
 
-// Sample internships data
 const sampleInternships = [
   {
     title: "Full Stack Developer Intern",
@@ -81,18 +74,13 @@ const sampleInternships = [
   }
 ];
 
-// Add sample data
 async function addSampleData() {
   try {
-    // Clear existing internships (optional)
     await Internship.deleteMany({});
     console.log('Cleared existing internships');
-    
-    // Add new sample internships
     await Internship.insertMany(sampleInternships);
     console.log('✅ Sample internships added successfully!');
     
-    // Verify data
     const count = await Internship.countDocuments();
     console.log(`Total internships in database: ${count}`);
     

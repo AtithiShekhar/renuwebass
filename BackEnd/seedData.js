@@ -1,13 +1,10 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-// Internship Schema
 const internshipSchema = new mongoose.Schema({
   title: String,
   company: String,
@@ -22,7 +19,6 @@ const internshipSchema = new mongoose.Schema({
 
 const Internship = mongoose.model('Internship', internshipSchema);
 
-// Sample internship data
 const sampleInternships = [
   {
     title: "Android Developer Intern",
@@ -86,14 +82,11 @@ const sampleInternships = [
   }
 ];
 
-// Function to seed data
 async function seedInternships() {
   try {
-    // Clear existing data
     await Internship.deleteMany({});
     console.log('Cleared existing internships');
 
-    // Insert sample data
     await Internship.insertMany(sampleInternships);
     console.log('Sample internships added successfully!');
     
